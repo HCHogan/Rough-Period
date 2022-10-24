@@ -1,0 +1,4 @@
+sort（排序，降序加上functional的Greater<int>（））
+random_shuffle随机排列（加上随机种子）
+merge两容器合并
+reverse反转
