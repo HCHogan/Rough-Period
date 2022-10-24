@@ -10,8 +10,7 @@ Oct 24th, 2022
 
 
 
-
-
+'''
 I've gotta learn how to love without you
 
 I've gotta carry my cross without you
@@ -27,3 +26,4 @@ Now I'm going out without you
 I'm going to tear the city down without you
 
 I'm going Bonnie and Clyde without you.
+'''
