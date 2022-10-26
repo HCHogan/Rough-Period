@@ -3,11 +3,9 @@ int main()
 {
     int cap=0,incap=0,space=0,sym=0;
     char a[100];
-    //scanf("%s",a);
     gets(a);
     for(int i=0;a[i]!='\0';i++)
     {
-        //int cnt=(int)a[i];
         if(a[i]>='A'&&a[i]<='Z') cap++;
         else if(a[i]==' ') space++;
         else if(a[i]>='a'&&a[i]<='z') incap++;
