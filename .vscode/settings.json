@@ -3,8 +3,28 @@
         "ostream": "cpp",
         "cstring": "cpp",
         "new": "cpp",
+<<<<<<< HEAD
         "queue": "cpp",
         "iostream": "cpp",
         "vector": "cpp"
+=======
+        "__bit_reference": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "__tree": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "deque": "cpp",
+        "filesystem": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp"
+>>>>>>> f0dd899c3f40e86ebab3cc077c67d1198469a0a2
     }
 }
