@@ -4,7 +4,7 @@ using namespace std;
 const int N=10010;
 int n,m;
 int a[N],b[N];      //a是原始数组，b是差分数组(导)
-void insert(int           l,int r,int c)      //意义：把l和r(闭区间)中的元素每个都加c
+void insert(int l,int r,int c)      //意义：把l和r(闭区间)中的元素每个都加c
 {
     b[l]+=c;
     b[r+1]-=c;
@@ -31,4 +31,5 @@ int main()
         a[i]=a[i-1]+b[i];
     }
     cout<<a[n];
+    return 0;
 }

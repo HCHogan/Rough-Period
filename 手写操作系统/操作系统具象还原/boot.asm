@@ -1,1 +1,1 @@
-ORG 7c00h
+ORG 0x7c00
