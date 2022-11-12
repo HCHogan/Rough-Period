@@ -56,6 +56,52 @@ int insert(int& p,int key)
     else if(key<tr[p].key)
     {
         insert(tr[p].L,key);
-        if(tr[p].)
+        if(tr[p].val<tr[tr[p].L].val) zig(p);
     }
+    else
+    {
+        insert(tr[p].R,key);
+        if(tr[p].val<tr[tr[p].R].val) zag(p);
+    }
+    pushup(p);
+}
+
+void del(int p,int key)
+{
+    if(!p) return;
+    if(key==tr[p].key)
+    {
+        if(tr[p].L||tr[p].R)
+        {
+            if(!tr[p].R&&tr[tr[p].L].val>tr[tr[p].R].val)
+            {
+                zig(p);
+                del(tr[p].R,key);
+            }
+            else
+            {
+                zag(p);
+                del(tr[p].L,key);
+            }
+        }
+        else p=0;
+    }
+    if(key<tr[p].key) del(tr[p].L,key);
+    else del(tr[p].R,key);
+    pushup(p);
+}
+
+int get_key_by_rank(int p,int rank)
+{
+    if(!p) return INF;
+    if(rank<=tr[tr[p].L].size) return get_key_by_rank(tr[p].L,rank);
+    if(rank>tr[tr[p].L].size+tr[p].cnt)
+        return get_key_by_rank(tr[p].R,rank-tr[tr[p].L].size-tr[p].cnt);
+    return tr[p].key;
+}
+
+int get_rank_by_key(int p,int key)
+{
+    if(!p) return INF;
+    
 }

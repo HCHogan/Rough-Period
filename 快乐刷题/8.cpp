@@ -26,6 +26,6 @@ int main()
     cin>>m>>n;
     ll a=qpow(m,n);
     ll b=(m*qpow(m-1,n-1))%MOD;
-    cout<<(a-b)%MOD<<endl;
+    cout<<a-b<<endl;
     return 0;
 }

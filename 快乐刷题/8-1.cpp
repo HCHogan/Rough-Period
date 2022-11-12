@@ -13,7 +13,7 @@ ll qpow(ll a, ll n){
     while(n){
         if(n&1)        
             ans = (ans*a)%MOD;  
-        a = (a*a)%MOD;        
+        a = ((a%MOD)*(a%MOD))%MOD;        
         n >>= 1;       
     }
     return ans%MOD;
