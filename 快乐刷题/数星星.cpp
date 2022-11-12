@@ -2,16 +2,14 @@
 using namespace std;
 const int N=10010,INF=0x3f3f3f3f;
 
-int a[N],b[N]; //a[i]=b[1]+b[2]+...+b[i];
-
-int tr[N],n,m;
+int tr[N],levelsum[N],n,m;
 
 int lowbit(int x)
 {
     return x&-x;
 }
 
-int update(int x,int t)
+void update(int x,int t)
 {
     while(x<=n)
     {
@@ -20,13 +18,8 @@ int update(int x,int t)
     }
 }
 
-int insert(int x,int t)
-{
-    update(x,t);
-    update(x+1,-t);
-}
 
-int ask(int x)
+int asksum(int x)
 {
     int res=0;
     while(x)
@@ -39,18 +32,18 @@ int ask(int x)
 
 int main()
 {
-    cin>>n>>m;
+    cin>>n;
     for(int i=1;i<=n;i++)
     {
-        int x,t;
-        cin>>x>>t;
-        insert(x,t);
+        int x,y;
+        cin>>x>>y;
+        x++;
+        levelsum[asksum(x)]++;
+        update(x,1);
     }
-    while(m--)
+    for(int i=1;i<=n;i++)
     {
-        int x;
-        cin>>x;
-        cout<<ask(x)<<" ";
+        cout<<levelsum[i]<<" ";
     }
     return 0;
 }
