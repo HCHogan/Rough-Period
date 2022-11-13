@@ -3,14 +3,14 @@
 using namespace std;
 const int N=10010,INF=0x3f3f3f3f;
 
-int idx,n,m;
-int root;
+int idx=0,n,m;  //节点编号从0开始
+int root=0;     //根结点编号
 
 struct Node
 {
     int L,R;
-    int key,val;
-    int cnt,size;
+    int key,val;        //key为值 val位随机值
+    int cnt,size;       //cnt为这个数出现的次数 size为以当前这个点为根结点 子树的数量
 }tr[N];
 
 int new_node(int key)
@@ -120,7 +120,7 @@ int get_next(int p,int key)
     return min(tr[p].key,get_next(tr[p].L,key));
 }
 
-void init_build()
+void init_build()       //初始化
 {
     new_node(-INF),new_node(INF);
     root=1;
