@@ -5,7 +5,7 @@ char a[3][3]={'-','-','-','-','-','-','-','-','-'};
 bool flag;
 int x,y;
 char ch;
-void print()
+void print2()
 {
     printf("\n");
     for(int i=0;i<3;i++)
@@ -23,7 +23,7 @@ void create()
     x=rand()%3+1;
     y=rand()%3+1;
 }
-void isWin()
+void isWin2()
 {
     if(a[0][0]==a[1][1]&&a[1][1]==a[2][2]) {flag=true;ch=a[0][0];}
     else if(a[0][0]==a[0][1]&&a[0][1]==a[0][2]) {flag=true;ch=a[0][0];}
@@ -34,17 +34,17 @@ void isWin()
     else if(a[0][2]==a[1][2]&&a[1][2]==a[2][2]) {flag=true;ch=a[0][2];}
     else if(a[2][0]==a[1][1]&&a[1][1]==a[0][2]) {flag=true;ch=a[2][0];}
 }
-int main()
+void computer()
 {
     int m=0;
-    print();
+    print2();
     while(scanf("%d %d",&x,&y))
     {
         if(a[x-1][y-1]=='-') a[x-1][y-1]='X';
-        else {printf("输入有误");print();continue;}
+        else {printf("输入有误");print2();continue;}
         m++;
-        print();
-        isWin();
+        print2();
+        isWin2();
         if(ch=='-'){flag=false;}
         if(flag)
         {
@@ -61,8 +61,8 @@ int main()
         m++;
         a[x-1][y-1]='O';
         printf("等待对方下子");
-        print();
-        isWin();
+        print2();
+        isWin2();
         if(ch=='-'){flag=false;}
         if(flag)
         {

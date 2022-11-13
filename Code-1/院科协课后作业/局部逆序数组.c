@@ -14,11 +14,11 @@ int main()
     {
         printf("%d ",a[i]);
     }
-    for(int i=n+m-1;i>=n-1;i--)
+    for(int i=n+m-2;i>=n-1;i--)
     {
         printf("%d ",a[i]);
     }
-    for(int i=n+m;i<10;i++)
+    for(int i=n+m-1;i<10;i++)
     {
         printf("%d ",a[i]);
     }
