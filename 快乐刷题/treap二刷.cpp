@@ -103,5 +103,21 @@ int get_key_by_rank(int p,int rank)
 int get_rank_by_key(int p,int key)
 {
     if(!p) return INF;
-    
+    if(key==tr[p].key) return tr[tr[p].L].size+1;
+    else if(key<tr[p].key) return get_rank_by_key(tr[p].L,key);
+    else return get_rank_by_key(tr[p].R,key)+tr[tr[p].L].size+tr[p].cnt;
+}
+
+int get_prev(int p,int key)
+{
+    if(!p) return -INF;
+    if(key<=tr[p].key) return get_prev(tr[p].L,key);
+    return max(get_prev(tr[p].L,key),tr[p].key);
+}
+
+int get_ne(int p,int key)
+{
+    if(!p) return INF;
+    if(key>=tr[p].key) return get_ne(tr[p].R,key);
+    return min(tr[p].key,get_ne(tr[p].L,key));
 }
