@@ -41,7 +41,7 @@ void splay(int x,int k)
     int z=tr[y].p;
     while(z!=k)
     {
-        (tr[z].s[0]==y)^(tr[y].s[0]==x) ? rotate(x):rotate(y);
+        (tr[z].s[0]==y)^(tr[y].s[0]==x) ? rotate(x):rotate(y);  //如果是折线型 转两次x 如果是直线型 转y再转x
         rotate(x);
     }
     if(k==0) root=x;            //0节点是根节点上面一个空节点 转到0节点下面意味着0节点就是整棵树的根节点
