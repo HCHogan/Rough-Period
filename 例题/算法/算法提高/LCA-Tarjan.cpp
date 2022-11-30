@@ -52,6 +52,7 @@ int main()
         int from,to;
         cin>>from>>to;
         query[from].push_back({to,i});
+        query[to].push_back({from,i});
     }
     tarjan(1);
     for(int i=1;i<=m;i++)
