@@ -18,6 +18,8 @@ class stack:
         return 0
     
     def pop(self):
+        if self.idx==0:
+            return 'error'
         self.idx=self.idx-1
         return self.items[self.idx]
         
@@ -27,6 +29,9 @@ class stack:
     def clear(self):
         self.idx=0
         return 0
+    
+    def size(self):
+        return self.idx
 
 def operate(x,y,op):
     if op=='+':
@@ -36,7 +41,7 @@ def operate(x,y,op):
     if op=='*':
         return x*y
     if op=='/':
-        return x/y
+        return x//y
     if op=='^':
         return x**y
     return -1
@@ -76,11 +81,13 @@ def midToSuc(s):
         else:
             while Stemp.empty()==0 and priority(Stemp.top()) >= priority(i):
                 reSuc.append(Stemp.top())
-                Stemp.pop()
+                if Stemp.pop()=='error':
+                    return 'error'
             Stemp.push(i)
     while(not Stemp.empty()):
         reSuc.append(Stemp.top())
-        Stemp.pop()
+        if Stemp.pop()=='error':
+            return 'error'
     return reSuc
 
 '''
@@ -92,22 +99,41 @@ def sucToMid(s):
         if 1<=priority(i)<=4:
 '''          
 
+   
+
 def calc(reSuc):
     Sdigital=stack()
     for i in reSuc:
         if priority(i)==0:
             Sdigital.push(i)
         elif i=='!':
-            temp1=int(Sdigital.pop())
+            temp1=Sdigital.pop()
+            if temp1=='error':
+                return 'error'
+            else:
+                temp1=int(temp1)
             Sdigital.push(myFactorial(temp1,1))
         else:   
-            temp2=int(Sdigital.pop())
-            temp1=int(Sdigital.pop())
+            temp2=Sdigital.pop()
+            temp1=Sdigital.pop()
+            if temp1=='error' or temp2=='error':
+                return 'error'
+            else:
+                temp1=int(temp1)
+                temp2=int(temp2)
             Sdigital.push(operate(temp1,temp2,i))
+    if Sdigital.size()>1:
+        return 0.5
     return Sdigital.pop()
             
 s=input("算式来\n")
 s=re.split(r"([\+|\-|\*|/|^|!|(|)])",s)
 print(s)
-print(midToSuc(s))
-print(calc(midToSuc(s)))
+if s[1]=='-':
+    s.insert(0,'0')
+print(s)
+s=midToSuc(s)
+if s=='error':
+    print("error")
+else:
+    print(calc(s))
